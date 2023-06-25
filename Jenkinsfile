@@ -1,45 +1,34 @@
 pipeline {
-  agent any
-  
-  stages {
-    stage('Checkout') {
-      steps {
-        // Checkout the source code from your Git repository
-        checkout scm
-      }
-    }
+    agent any
     
-    stage('Build') {
-      steps {
-        // Install dependencies (if any)
-        sh 'npm install'
+    stages {
+        stage('Build') {
+            steps {
+                // Clone the repository
+                checkout scm
+                
+                // Build the game app
+                sh 'npm install -g http-server'
+                sh 'npm install -g sass'
+                sh 'sass style/main.scss style/main.css'
+                //sh 'cp src/* dist/'
+            }
+        }
         
-        // Compile SCSS to CSS
-        //sh 'sass style/main.scss:dist/css/main.css'
+        stage('Test') {
+            steps {
+                // Run tests for the game app (if applicable)
+                // Modify the test command as per your project requirements
+                sh 'echo "No tests"'
+            }
+        }
         
-        // Concatenate and minify JavaScript files
-        //sh 'uglifyjs src/scripts/*.js -o dist/js/main.min.js'
-        
-        // Copy HTML files to the dist directory
-        //h 'cp src/*.html dist/'
-        
-        // Copy additional static assets (images, fonts, etc.)
-        //sh 'cp -R src/assets dist/'
-      }
+        stage('Deploy') {
+            steps {
+                // Deploy the game app to a web server or hosting platform
+                // Replace the placeholder commands with your deployment process
+                sh 'http-server dist'
+            }
+        }
     }
-
-  stage('Test') {
-    steps {
-        sh 'npm run test' // Run tests
-      }
-    }
-        
-  stage('Deploy') {
-    steps {
-        echo "deploying..."
-      }
-    }
-  
-  
-  }
 }
