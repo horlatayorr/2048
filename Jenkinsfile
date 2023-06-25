@@ -8,10 +8,8 @@ pipeline {
                 checkout scm
                 
                 // Build the game app
-                //sh 'npm install -g http-server'
-                sh 'npm install -g sass'
-                sh 'sass style/main.scss style/main.css'
-                //sh 'cp src/* dist/'
+                sh 'npm install'
+                
             }
         }
         
@@ -19,15 +17,14 @@ pipeline {
             steps {
                 // Run tests for the game app (if applicable)
                 // Modify the test command as per your project requirements
+                sh 'npm run tests'
                 sh 'echo "No tests"'
             }
         }
         
         stage('Deploy') {
             steps {
-                // Deploy the game app to a web server or hosting platform
-                // Replace the placeholder commands with your deployment process
-                sh 'http-server dist'
+                echo "deploying..."
             }
         }
     }
