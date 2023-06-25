@@ -27,15 +27,19 @@ pipeline {
         sh 'cp -R src/assets dist/'
       }
     }
-  }
+
+  stage('Test') {
+    steps {
+        sh 'npm run test' // Run tests
+      }
+    }
+        
+  stage('Deploy') {
+    steps {
+        echo "deploying..."
+      }
+    }
   
-  post {
-    success {
-      // Additional steps to perform on build success (e.g., deployment)
-    }
-    
-    failure {
-      // Additional steps to perform on build failure
-    }
+  
   }
 }
