@@ -11,7 +11,7 @@ pipeline {
 
         stage('Build 2') {
             steps {
-                sh 'ng build --prod --aot --sm --progress=false'
+                sh 'npm run build' // Build the application
             }
         }
             
