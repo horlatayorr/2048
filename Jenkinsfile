@@ -17,7 +17,7 @@ ode {
     
     //stage('npm install angular') {
         //sh "npm install -g @angular/cli"
-    }
+    //}
   
     stage('unit tests') {
         sh "export CHROME_BIN=/usr/bin/google-chrome"// Set the CHROME_BIN environment variable
