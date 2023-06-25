@@ -15,7 +15,7 @@ pipeline {
         sh 'npm install'
         
         // Compile SCSS to CSS
-        sh 'sass style/main.scss:dist/css/main.css'
+        //sh 'sass style/main.scss:dist/css/main.css'
         
         // Concatenate and minify JavaScript files
         //sh 'uglifyjs src/scripts/*.js -o dist/js/main.min.js'
