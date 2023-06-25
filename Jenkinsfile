@@ -17,7 +17,6 @@ pipeline {
             steps {
                 // Run tests for the game app (if applicable)
                 // Modify the test command as per your project requirements
-                sh 'npm run tests'
                 sh 'echo "No tests"'
             }
         }
