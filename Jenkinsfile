@@ -15,16 +15,16 @@ pipeline {
         sh 'npm install'
         
         // Compile SCSS to CSS
-        sh 'sass src/styles/main.scss:dist/css/main.css'
+        sh 'sass style/main.scss:dist/css/main.css'
         
         // Concatenate and minify JavaScript files
-        sh 'uglifyjs src/scripts/*.js -o dist/js/main.min.js'
+        //sh 'uglifyjs src/scripts/*.js -o dist/js/main.min.js'
         
         // Copy HTML files to the dist directory
-        sh 'cp src/*.html dist/'
+        //h 'cp src/*.html dist/'
         
         // Copy additional static assets (images, fonts, etc.)
-        sh 'cp -R src/assets dist/'
+        //sh 'cp -R src/assets dist/'
       }
     }
 
