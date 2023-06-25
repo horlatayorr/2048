@@ -8,7 +8,7 @@ pipeline {
                 checkout scm
                 
                 // Build the game app
-                sh 'npm install -g http-server'
+                //sh 'npm install -g http-server'
                 sh 'npm install -g sass'
                 sh 'sass style/main.scss style/main.css'
                 //sh 'cp src/* dist/'
